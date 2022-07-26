@@ -20,7 +20,7 @@ RSpec.describe TaskList do
     expect(task_list.all).to eq [fake_task_1, fake_task_2]
   end
 
-  it "marks tasks as complete" do
+  it "returns true if all tasks are marked as complete" do
     task_list = TaskList.new
     fake_task_1 = double :task, mark_complete: nil, complete?: true
     fake_task_2 = double :task, mark_complete: nil, complete?: true
@@ -30,7 +30,7 @@ RSpec.describe TaskList do
     fake_task_2.mark_complete
     expect(task_list.all_complete?).to eq true
   end
-  it "marks tasks as complete" do
+  it "returns false if all tasks aren't marked as complete" do
     task_list = TaskList.new
     fake_task_1 = double :task, mark_complete: nil, complete?: true
     fake_task_2 = double :task, mark_complete: nil, complete?: false
